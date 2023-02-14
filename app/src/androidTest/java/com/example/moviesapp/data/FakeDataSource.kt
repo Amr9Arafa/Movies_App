@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flowOf
 
 class FakeDataSource : DataSource {
 
-    private var moviesListL: ArrayList<Movie> =arrayListOf<Movie>()
+     var moviesListL: ArrayList<Movie> =arrayListOf<Movie>()
 
     var errorMsg: String = ""
     var shouldReturnError = false
