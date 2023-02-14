@@ -1,15 +1,12 @@
+apply plugin: 'com.android.application'
 
-
-    apply plugin: 'com.android.application'
-
-    apply plugin: 'kotlin-android'
-    apply plugin: 'kotlin-kapt'
-    apply plugin: 'androidx.navigation.safeargs'
-    apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-android-extensions'
 
 
 android {
-    namespace 'com.example.moviesapp'
     compileSdk 32
 
     defaultConfig {
@@ -27,6 +24,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    testOptions.unitTests {
+        includeAndroidResources = true
+        returnDefaultValues = true
     }
 
     buildFeatures {
@@ -47,9 +49,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
@@ -65,7 +65,9 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:2.6.2"
     implementation "com.squareup.retrofit2:converter-moshi:2.5.0"
     implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
 
+    //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
@@ -73,11 +75,65 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
     implementation 'com.squareup.picasso:picasso:2.8'
-
+    //room
     implementation("androidx.room:room-ktx:2.3.0-alpha01")
     implementation "androidx.room:room-runtime:2.3.0-alpha01"
-    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    testImplementation 'junit:junit:4.12'
     kapt "androidx.room:room-compiler:2.3.0-alpha01"
+    //worker
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+    //Koin
+    implementation "io.insert-koin:koin-android:3.3.2"
+
+    // gson - for parsing json
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    // retrofit-gson-converter
+    implementation "com.squareup.retrofit2:converter-gson:2.6.2"
+
+
+
+
+    //Local test dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+
+
+    // AndroidX Test - JVM  local testing
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+    testImplementation "androidx.test:rules:$androidXTestRulesVersion"
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+
+
+    androidTestImplementation  'junit:junit:4.12'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+
+
+
+//
+
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    implementation "androidx.fragment:fragment:$fragmentVersion"
+
+
+
+//
+    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
+    androidTestImplementation('org.koin:koin-test:2.2.2') { exclude group: 'org.mockito' }
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+
+
+    implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
 
 
 
