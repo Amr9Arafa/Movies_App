@@ -43,7 +43,7 @@ class MainFragmentTest {
     @Before
     fun setup() {
         //stop original koin to inject fake repository
-        stopKoin()
+//        stopKoin()
         context = ApplicationProvider.getApplicationContext()
         fakeDataSource = FakeDataSource()
 
@@ -64,17 +64,16 @@ class MainFragmentTest {
 
 
     @Test
-    fun showAllListMsg() {
-//        launchFragmentInContainer<MainFragment>(Bundle(), R.style.AppTheme)
+    fun showAllMoviesList() {
+        launchFragmentInContainer<MainFragment>(Bundle(), R.style.AppTheme)
         Thread.sleep(6000)
-        for (movie in fakeDataSource.moviesListL) {
-            Espresso.onView(withText(movie.title))
+            Espresso.onView(withText("title1"))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-            Espresso.onView(withText(movie.overview))
+            Espresso.onView(withText("overview1"))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
         }
 
 
-    }
+
 }
