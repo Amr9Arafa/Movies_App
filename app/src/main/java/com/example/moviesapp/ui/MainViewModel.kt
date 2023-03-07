@@ -5,16 +5,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesapp.DataSource
 import com.example.moviesapp.base.BaseViewModel
 import com.example.moviesapp.model.Movie
 import kotlinx.coroutines.launch
-import com.example.moviesapp.database.Result
+import com.example.moviesapp.data.database.Result
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.withContext
 
 class MainViewModel(
 

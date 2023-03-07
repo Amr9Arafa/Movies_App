@@ -1,7 +1,7 @@
 package com.example.moviesapp.data
 
 import com.example.moviesapp.DataSource
-import com.example.moviesapp.database.Result
+import com.example.moviesapp.data.database.Result
 import com.example.moviesapp.model.Movie
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf

@@ -1,17 +1,15 @@
 package com.example.moviesapp.repository
 
-import android.provider.ContactsContract.Data
-import androidx.room.Database
 import com.example.moviesapp.DataSource
-import com.example.moviesapp.api.RetrofitBuilder
-import com.example.moviesapp.database.MoviesDataBase
+import com.example.moviesapp.data.api.RetrofitBuilder
+import com.example.moviesapp.data.database.MoviesDataBase
 import com.example.moviesapp.model.Movie
 import com.example.moviesapp.model.asDatabaseModel
 import com.example.moviesapp.utils.wrapEspressoIdlingResource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
-import com.example.moviesapp.database.Result
+import com.example.moviesapp.data.database.Result
 
 class MoviesRepository(private val database: MoviesDataBase) : DataSource {
 

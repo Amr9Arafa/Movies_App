@@ -1,4 +1,4 @@
-package com.example.moviesapp.api
+package com.example.moviesapp.data.api
 
 import com.example.moviesapp.utils.Constants.BASE_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
